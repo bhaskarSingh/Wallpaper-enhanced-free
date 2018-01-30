@@ -76,6 +76,7 @@ import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.github.javiersantos.materialstyleddialogs.enums.Style;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -144,7 +145,6 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_board);
         startHandler();
-
         MobileAds.initialize(this, (getString(R.string.admob_app_id)));
 
         // Prepare new ad
@@ -153,6 +153,11 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
         interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
         // Load Ad
         loadInterstitial();
+
+        //Load banner ad
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         AppUpdater appUpdater = new AppUpdater(this);
         appUpdater.start();

@@ -3,7 +3,7 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.sadiqrazasyed'
+group = 'com.github.bhaskarSingh'
 
 /*
  * Wallpaper Board

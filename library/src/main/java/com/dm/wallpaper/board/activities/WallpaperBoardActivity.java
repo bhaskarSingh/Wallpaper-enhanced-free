@@ -50,7 +50,6 @@ import com.dm.wallpaper.board.activities.configurations.ActivityConfiguration;
 import com.dm.wallpaper.board.applications.WallpaperBoardApplication;
 import com.dm.wallpaper.board.applications.WallpaperBoardConfiguration;
 import com.dm.wallpaper.board.databases.Database;
-import com.dm.wallpaper.board.fragments.AboutFragment;
 import com.dm.wallpaper.board.fragments.CollectionFragment;
 import com.dm.wallpaper.board.fragments.FavoritesFragment;
 import com.dm.wallpaper.board.fragments.SettingsFragment;
@@ -466,7 +465,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
             if (id == R.id.navigation_view_wallpapers) mPosition = 0;
             else if (id == R.id.navigation_view_favorites) mPosition = 1;
             else if (id == R.id.navigation_view_settings) mPosition = 2;
-            else if (id == R.id.navigation_view_about) mPosition = 3;
+            //else if (id == R.id.navigation_view_about) mPosition = 3;
             else if (id == R.id.navigation_view_donate) mPosition = 4;
             else if (id == R.id.navigation_view_share) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
@@ -643,7 +642,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                 .setDescription(R.string.dialog_content_adblock)
                 //.setStyle(Style.HEADER_WITH_ICON)
                 .setStyle(Style.HEADER_WITH_TITLE)
-                .setHeaderColor(R.color.colorPrimary)
+                .setHeaderColor(R.color.colorAccent)
                 .setPositiveText(R.string.dialog_btn_yes_adblock)
                 .withDialogAnimation(true)
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
@@ -667,17 +666,17 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                         finish();
                     }
                 })
-                .setNeutralText(R.string.dialog_btn_neutral_adblock)
-                .onNeutral(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        String url = (getString(R.string.pro_app_url));
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(url));
-                        startActivity(i);
-                        finish();
-                    }
-                })
+//                .setNeutralText(R.string.dialog_btn_neutral_adblock)
+//                .onNeutral(new MaterialDialog.SingleButtonCallback() {
+//                    @Override
+//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                        String url = (getString(R.string.pro_app_url));
+//                        Intent i = new Intent(Intent.ACTION_VIEW);
+//                        i.setData(Uri.parse(url));
+//                        startActivity(i);
+//                        finish();
+//                    }
+//                })
                 .withDivider(true)
                 //.autoDismiss(false)
                 .setCancelable(false)
@@ -695,10 +694,11 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
         } else if (position == 2) {
             mFragmentTag = Extras.TAG_SETTINGS;
             return new SettingsFragment();
-        } else if (position == 3) {
-            mFragmentTag = Extras.TAG_ABOUT;
-            return new AboutFragment();
         }
+// else if (position == 3) {
+//            mFragmentTag = Extras.TAG_ABOUT;
+//            return new AboutFragment();
+//        }
         return null;
     }
 

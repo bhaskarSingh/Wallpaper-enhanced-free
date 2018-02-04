@@ -807,18 +807,18 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         new MaterialStyledDialog.Builder(this)
                 .setTitle(R.string.dialog_title)
                 .setDescription(R.string.dialog_content)
-                //.setStyle(Style.HEADER_WITH_ICON)
+                //.setStyle(Style.HEADER_WITH_ICON)a
                 .setStyle(Style.HEADER_WITH_TITLE)
-                .setHeaderColor(R.color.colorPrimary)
+                .setHeaderColor(R.color.colorAccent)
                 .setPositiveText(R.string.dialog_btn_yes)
                 .withDialogAnimation(true)
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        String url = (getString(R.string.pro_app_url));
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(url));
-                        startActivity(i);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
+                                "https://play.google.com/store/apps/details?id=" +getPackageName()));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+                        startActivity(intent);
                     }
                 })
                 .setNegativeText(R.string.dialog_btn_no)

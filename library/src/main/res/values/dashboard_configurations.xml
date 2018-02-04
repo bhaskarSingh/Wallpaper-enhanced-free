@@ -154,12 +154,12 @@
     <string name="ad_closemax_count">5</string>
     <!-- ======================================================================================= -->
     <!-- Buy Pro Dialog -->
-    <string name="dialog_title">Don\'t like ads?</string>
-    <string name="dialog_content">Upgrade to "YOUR APP NAME" to continue using without any ads.</string>
-    <string name="dialog_btn_yes">Buy Now</string>
+    <string name="dialog_title">Like our app?</string>
+    <string name="dialog_content">Rate us on google play store.</string>
+    <string name="dialog_btn_yes">Ok</string>
     <string name="dialog_btn_no">Not Now</string>
     <!-- Pro App Link -->
-    <string name="pro_app_url">https://google.com</string>
+    <!--<string name="pro_app_url">https://google.com</string>-->
 
     <!-- ======================================================================================= -->
     <!-- Ad Blocker Prevention Dialog -->
@@ -167,7 +167,7 @@
     <string name="dialog_content_adblock">It seems like you\'re having an ad-blocker installed on your device. Please note, this app contains a small amount of ads in order to maintain active development. Support us by uninstalling your ad-blocker or consider buying Pro!</string>
     <string name="dialog_btn_yes_adblock">Okay</string>
     <string name="dialog_btn_no_adblock">Exit App</string>
-    <string name="dialog_btn_neutral_adblock">BUY PRO</string>
+    <!--<string name="dialog_btn_neutral_adblock">BUY PRO</string>-->
 
     <!-- ======================================================================================= -->
     <!-- Email Report -->

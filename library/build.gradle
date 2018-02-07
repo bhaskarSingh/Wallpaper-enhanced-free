@@ -120,14 +120,14 @@ dependencies {
     // OneSignal SDK
     implementation 'com.onesignal:OneSignal:3.+@aar'
     // Required for OneSignal
-    implementation 'com.google.android.gms:play-services-gcm:11.6.2'
-    implementation 'com.google.android.gms:play-services-analytics:11.6.2'
+    implementation 'com.google.android.gms:play-services-gcm:11.8.0'
+    implementation 'com.google.android.gms:play-services-analytics:11.8.0'
 
     // App Updater
     compile 'com.github.javiersantos:AppUpdater:2.6.3'
 
     // Google Ads
-    compile 'com.google.android.gms:play-services-ads:11.6.2'
+    compile 'com.google.android.gms:play-services-ads:11.8.0'
 
     // Material Dialogs With Additional Features
     compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'

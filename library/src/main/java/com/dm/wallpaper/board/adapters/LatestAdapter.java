@@ -230,18 +230,18 @@ public class LatestAdapter extends RecyclerView.Adapter<LatestAdapter.ViewHolder
                 card.setStateListAnimator(stateListAnimator);
             }
 
-            if (mContext.getResources().getBoolean(R.bool.enable_wallpaper_download)) {
-                download.setImageDrawable(DrawableHelper.getTintedDrawable(
-                        mContext, R.drawable.ic_toolbar_download, Color.WHITE));
-                download.setOnClickListener(this);
-            }
-
-            apply.setImageDrawable(DrawableHelper.getTintedDrawable(
-                    mContext, R.drawable.ic_toolbar_apply_options, Color.WHITE));
+//            if (mContext.getResources().getBoolean(R.bool.enable_wallpaper_download)) {
+//                download.setImageDrawable(DrawableHelper.getTintedDrawable(
+//                        mContext, R.drawable.ic_toolbar_download, Color.WHITE));
+//                download.setOnClickListener(this);
+//            }
+//
+//            apply.setImageDrawable(DrawableHelper.getTintedDrawable(
+//                    mContext, R.drawable.ic_toolbar_apply_options, Color.WHITE));
 
             card.setOnClickListener(this);
             favorite.setOnClickListener(this);
-            apply.setOnClickListener(this);
+            //apply.setOnClickListener(this);
         }
 
         @Override

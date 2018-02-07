@@ -70,20 +70,20 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/content_padding"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:theme="@style/RippleStyleLight"/>
-
-            <ImageView
                 android:id="@+id/download"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/content_padding"
                 android:layout_marginRight="@dimen/content_padding"
                 android:layout_marginEnd="@dimen/content_padding"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:theme="@style/RippleStyleLight"/>
+
+            <ImageView
+                android:id="@+id/favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/content_padding"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:theme="@style/RippleStyleLight"/>
 

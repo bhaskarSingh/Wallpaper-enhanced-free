@@ -112,6 +112,9 @@
     * change to false to disable it -->
     <bool name="enable_donation">false</bool>
 
+    <!-- Splash screen -->
+    <string name="splash_screen_title">splash screen title</string>
+
     <!-- Take a look inside License.java for donation product -->
 
     <!-- ======================================================================================= -->

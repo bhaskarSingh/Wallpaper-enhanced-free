@@ -64,7 +64,7 @@ public class TapIntroHelper {
 
                     ImageView apply = rootView.findViewById(R.id.menu_apply);
                     ImageView save = rootView.findViewById(R.id.menu_save);
-                    ImageView preview = rootView.findViewById(R.id.menu_preview);
+                    //ImageView preview = rootView.findViewById(R.id.menu_preview);
 
                     TapTarget tapTarget = TapTarget.forView(apply,
                             context.getResources().getString(R.string.tap_intro_wallpaper_preview_apply),
@@ -84,14 +84,14 @@ public class TapIntroHelper {
                             .outerCircleColorInt(baseColor)
                             .drawShadow(true);
 
-                    TapTarget tapTarget2 = TapTarget.forView(preview,
-                            context.getResources().getString(R.string.tap_intro_wallpaper_preview_full),
-                            context.getResources().getString(R.string.tap_intro_wallpaper_preview_full_desc))
-                            .titleTextColorInt(primary)
-                            .descriptionTextColorInt(secondary)
-                            .targetCircleColorInt(primary)
-                            .outerCircleColorInt(baseColor)
-                            .drawShadow(true);
+//                    TapTarget tapTarget2 = TapTarget.forView(preview,
+//                            context.getResources().getString(R.string.tap_intro_wallpaper_preview_full),
+//                            context.getResources().getString(R.string.tap_intro_wallpaper_preview_full_desc))
+//                            .titleTextColorInt(primary)
+//                            .descriptionTextColorInt(secondary)
+//                            .targetCircleColorInt(primary)
+//                            .outerCircleColorInt(baseColor)
+//                            .drawShadow(true);
 
                     if (title != null) {
                         //Todo:
@@ -100,7 +100,7 @@ public class TapIntroHelper {
                         //tapTarget2.titleTypeface(title);
                         tapTarget.textTypeface(title);
                         tapTarget1.textTypeface(title);
-                        tapTarget2.textTypeface(title);
+                        //tapTarget2.textTypeface(title);
                     }
 
                     //if (description != null) {
@@ -114,7 +114,7 @@ public class TapIntroHelper {
                     if (context.getResources().getBoolean(R.bool.enable_wallpaper_download)) {
                         tapTargetSequence.target(tapTarget1);
                     }
-                    tapTargetSequence.target(tapTarget2);
+                    //tapTargetSequence.target(tapTarget2);
 
                     tapTargetSequence.listener(new TapTargetSequence.Listener() {
                         @Override

@@ -55,6 +55,7 @@ public class Preferences {
     private static final String KEY_HIGH_QUALITY_PREVIEW = "high_quality_preview";
     private static final String KEY_BACKUP = "backup";
     private static final String KEY_PREVIOUS_BACKUP = "previousBackup";
+    public static final String KEY_NEVER = "never";
 
     private static WeakReference<Preferences> mPreferences;
     private final Context mContext;
@@ -196,6 +197,13 @@ public class Preferences {
 
     public void setPreviousBackupExist(boolean bool) {
         getSharedPreferences().edit().putBoolean(KEY_PREVIOUS_BACKUP, bool).apply();
+    }
+
+    public boolean getDialogChecked(){
+        return getSharedPreferences().getBoolean(KEY_NEVER, true);
+    }
+    public void setDialogChecked(boolean isChecked){
+        getSharedPreferences().edit().putBoolean(KEY_NEVER, isChecked).apply();
     }
 
     public Locale getCurrentLocale() {

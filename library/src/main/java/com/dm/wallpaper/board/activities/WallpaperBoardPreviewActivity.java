@@ -125,12 +125,12 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
     TextView mName;
     @BindView(R2.id.author)
     TextView mAuthor;
-    @BindView(R2.id.menu_preview)
-    ImageView mMenuPreview;
+//    @BindView(R2.id.menu_preview)
+//    ImageView mMenuPreview;
     @BindView(R2.id.menu_save)
     ImageView mMenuSave;
     @BindView(R2.id.menu_apply)
-    ImageView mMenuApply;
+    TextView mMenuApply;
     @BindView(R2.id.recyclerview)
     RecyclerView mRecyclerView;
     @BindView(R2.id.sliding_layout)
@@ -158,6 +158,7 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
     private SharedPreferences.Editor editor;
     private int totalCount;
     private int countAds;
+    private boolean checked = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -180,7 +181,7 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
             public void onAdClosed() {
                 countAds++;
                 editor.putInt("number", countAds);
-                editor.commit();
+                editor.apply();
                 countAdsMethod();
                 requestNewInterstitial();
             }
@@ -395,14 +396,6 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         int id = view.getId();
         if (id == R.id.back) {
             onBackPressed();
-        } else if (id == R.id.menu_preview) {
-            if (mTooltip != null) {
-                mTooltip.dismiss();
-            }
-
-            if (mProgress.getVisibility() == View.GONE) {
-                loadWallpaper(mWallpaper.getUrl());
-            }
         } else if (id == R.id.menu_save) {
              if (mInterstitialAd.isLoaded()) {
                 mInterstitialAd.show();
@@ -437,6 +430,10 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
                             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                             return;
                         } else if (item.getType() == PopupItem.Type.LOCKSCREEN) {
+                            totalCount++;
+                            editor.putInt("counter", totalCount);
+                            editor.commit();
+                            counterCounts();
                             RectF rectF = null;
                             if (Preferences.get(WallpaperBoardPreviewActivity.this).isCropWallpaper()) {
                                 if (mAttacher != null)
@@ -503,8 +500,6 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
             res = R.string.wallpaper_apply;
         } else if (id == R.id.menu_save) {
             res = R.string.wallpaper_save_to_device;
-        } else if (id == R.id.menu_preview) {
-            res = R.string.wallpaper_preview_full;
         }
 
         if (res == 0) return false;
@@ -581,27 +576,27 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
     @Override
     public void onPanelStateChanged(View panel, SlidingUpPanelLayout.PanelState previousState,
                                     SlidingUpPanelLayout.PanelState newState) {
-        File file = ImageLoader.getInstance().getDiskCache().get(mWallpaper.getUrl());
-        if (newState == SlidingUpPanelLayout.PanelState.COLLAPSED &&
-                mTooltip == null
-                && Preferences.get(this).isShowWallpaperTooltip() &&
-                !file.exists() &&
-                !Preferences.get(this).isTimeToShowWallpaperPreviewIntro() &&
-                !Preferences.get(this).isHighQualityPreviewEnabled()) {
-            mTooltip = Tooltip.Builder(this)
-                    .to(mMenuPreview)
-                    .content(R.string.wallpaper_tooltip_preview)
-                    .desc(R.string.wallpaper_tooltip_preview_icon_tap)
-                    .descIcon(R.drawable.ic_toolbar_preview_full)
-                    .visibleDontShowAgain(true)
-                    .cancelable(false)
-                    .buttonCallback(tooltip -> {
-                        Preferences.get(this).setShowWallpaperTooltip(!tooltip.getCheckboxState());
-                        tooltip.dismiss();
-                    })
-                    .build();
-            mTooltip.show();
-        }
+//        File file = ImageLoader.getInstance().getDiskCache().get(mWallpaper.getUrl());
+//        if (newState == SlidingUpPanelLayout.PanelState.COLLAPSED &&
+//                mTooltip == null
+//                && Preferences.get(this).isShowWallpaperTooltip() &&
+//                !file.exists() &&
+//                !Preferences.get(this).isTimeToShowWallpaperPreviewIntro() &&
+//                !Preferences.get(this).isHighQualityPreviewEnabled()) {
+//            mTooltip = Tooltip.Builder(this)
+//                    .to(mMenuPreview)
+//                    .content(R.string.wallpaper_tooltip_preview)
+//                    .desc(R.string.wallpaper_tooltip_preview_icon_tap)
+//                    .descIcon(R.drawable.ic_toolbar_preview_full)
+//                    .visibleDontShowAgain(true)
+//                    .cancelable(false)
+//                    .buttonCallback(tooltip -> {
+//                        Preferences.get(this).setShowWallpaperTooltip(!tooltip.getCheckboxState());
+//                        tooltip.dismiss();
+//                    })
+//                    .build();
+//            mTooltip.show();
+//        }
     }
 
     @Override
@@ -633,22 +628,22 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         mName.setTextColor(color);
         mAuthor.setText(mWallpaper.getAuthor());
         mAuthor.setTextColor(ColorHelper.setColorAlpha(color, 0.7f));
-
-        mMenuPreview.setImageDrawable(DrawableHelper.getTintedDrawable(
-                this, R.drawable.ic_toolbar_preview_full, color));
+//
+//        mMenuPreview.setImageDrawable(DrawableHelper.getTintedDrawable(
+//                this, R.drawable.ic_toolbar_preview_full, color));
         mMenuSave.setImageDrawable(DrawableHelper.getTintedDrawable(
                 this, R.drawable.ic_toolbar_download, color));
-        mMenuApply.setImageDrawable(DrawableHelper.getTintedDrawable(
-                this, R.drawable.ic_toolbar_apply_options, color));
+//        mMenuApply.setImageDrawable(DrawableHelper.getTintedDrawable(
+//                this, R.drawable.ic_toolbar_apply_options, color));
 
         if (getResources().getBoolean(R.bool.enable_wallpaper_download)) {
             mMenuSave.setVisibility(View.VISIBLE);
         }
 
-        mMenuPreview.setOnClickListener(this);
+        //mMenuPreview.setOnClickListener(this);
         mMenuSave.setOnClickListener(this);
         mMenuApply.setOnClickListener(this);
-        mMenuPreview.setOnLongClickListener(this);
+        //mMenuPreview.setOnLongClickListener(this);
         mMenuSave.setOnLongClickListener(this);
         mMenuApply.setOnLongClickListener(this);
     }
@@ -705,7 +700,8 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
             mAttacher = null;
         }
 
-        boolean highQualityPreview = Preferences.get(this).isHighQualityPreviewEnabled();
+        boolean highQualityPreview = true;
+                //Preferences.get(this).isHighQualityPreviewEnabled();
         File file = ImageLoader.getInstance().getDiskCache().get(mWallpaper.getUrl());
         if (file.exists() || highQualityPreview) {
             if (file.exists()) {
@@ -793,13 +789,15 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
     }
 
     public void showDialog() {
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showDialogNow();
-            }
-        }, 1000);
+        checked = Preferences.get(this).getDialogChecked();
+        if (checked) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    showDialogNow();
+                }
+            }, 1000);
+        }
     }
 
     private void showDialogNow()
@@ -819,6 +817,14 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
                                 "https://play.google.com/store/apps/details?id=" +getPackageName()));
                         intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
                         startActivity(intent);
+                    }
+                })
+                .setNeutralText("Never")
+                .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        checked = false;
+                        Preferences.get(WallpaperBoardPreviewActivity.this).setDialogChecked(checked);
                     }
                 })
                 .setNegativeText(R.string.dialog_btn_no)

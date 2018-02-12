@@ -74,10 +74,11 @@
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_content_title"
+                    android:textSize="@dimen/text_content"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    fontPath="fonts/Font-Medium.ttf"/>
+                    fontPath="fonts/Font-Regular.ttf"
+                    />
 
                 <TextView
                     android:id="@+id/author"
@@ -89,13 +90,13 @@
                     fontPath="fonts/Font-Regular.ttf"/>
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/menu_preview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/content_margin"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:theme="@style/RippleStyle"/>
+            <!--<ImageView-->
+                <!--android:id="@+id/menu_preview"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="@dimen/content_margin"-->
+                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                <!--android:theme="@style/RippleStyle"/>-->
 
             <ImageView
                 android:id="@+id/menu_save"
@@ -106,7 +107,11 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:theme="@style/RippleStyle"/>
 
-            <ImageView
+            <TextView
+                fontPath="fonts/Font-Medium.ttf"
+                android:textColor="@android:color/white"
+                android:text="SET WALLPAPER"
+                android:textSize="@dimen/text_content_title"
                 android:id="@+id/menu_apply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

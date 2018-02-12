@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Wallpaper-enhanced-free.iml" filepath="$PROJECT_DIR$/Wallpaper-enhanced-free.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Wallpaper-enhanced-free.iml" filepath="$PROJECT_DIR$/.idea/Wallpaper-enhanced-free.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/Wallpaper-enhanced-free-app.iml" filepath="$PROJECT_DIR$/app/Wallpaper-enhanced-free-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/Wallpaper-enhanced-free-library.iml" filepath="$PROJECT_DIR$/library/Wallpaper-enhanced-free-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/wallpaperboard-enhanced.iml" filepath="$PROJECT_DIR$/.idea/wallpaperboard-enhanced.iml" />

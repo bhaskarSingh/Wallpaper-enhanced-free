@@ -152,9 +152,9 @@
     <!-- Recommended value is 2 & 5 -->
 
     <!-- Min Number -->
-    <string name="ad_closemin_count">2</string>
+    <string name="ad_closemin_count">1</string>
     <!-- Max Number -->
-    <string name="ad_closemax_count">5</string>
+    <string name="ad_closemax_count">2</string>
 
     <!-- ======================================================================================= -->
     <!-- Buy Pro Dialog -->

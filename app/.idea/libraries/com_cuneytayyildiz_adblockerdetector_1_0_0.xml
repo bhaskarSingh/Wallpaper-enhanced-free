@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.cuneytayyildiz:adblockerdetector-1.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adblockerdetector-1.0.0.aar/2417920a6f9fac667a08eeedcd8f5e08/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/adblockerdetector-1.0.0.aar/2417920a6f9fac667a08eeedcd8f5e08/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.cuneytayyildiz/adblockerdetector/1.0.0/49338c972993a0454246aa6d757dfa7d08a7c463/adblockerdetector-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

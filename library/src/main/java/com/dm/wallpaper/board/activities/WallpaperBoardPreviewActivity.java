@@ -26,7 +26,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.transition.Transition;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -70,10 +69,6 @@ import com.dm.wallpaper.board.utils.WallpaperDownloader;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.github.javiersantos.materialstyleddialogs.enums.Style;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.kogitune.activitytransition.ActivityTransition;
 import com.kogitune.activitytransition.ExitActivityTransition;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -152,7 +147,7 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
 
     private boolean mIsBottomPanelDragged = false;
 
-    private InterstitialAd mInterstitialAd;
+    //private InterstitialAd mInterstitialAd;
 
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
@@ -171,21 +166,21 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         totalCount = prefs.getInt("counter", 0);
         countAds = prefs.getInt("number", 0);
 
-        MobileAds.initialize(this, (getString(R.string.admob_app_id)));
-
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.admob_interstitial_id));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                countAds++;
-                editor.putInt("number", countAds);
-                editor.apply();
-                countAdsMethod();
-                requestNewInterstitial();
-            }
-        });
+//        MobileAds.initialize(this, (getString(R.string.admob_app_id)));
+//
+//        mInterstitialAd = new InterstitialAd(this);
+//        mInterstitialAd.setAdUnitId(getString(R.string.admob_interstitial_id));
+//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+//        mInterstitialAd.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdClosed() {
+//                countAds++;
+//                editor.putInt("number", countAds);
+//                editor.apply();
+//                countAdsMethod();
+//                requestNewInterstitial();
+//            }
+//        });
 
         ButterKnife.bind(this);
 
@@ -397,12 +392,12 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         if (id == R.id.back) {
             onBackPressed();
         } else if (id == R.id.menu_save) {
-             if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-                requestNewInterstitial();
-            }
+//             if (mInterstitialAd.isLoaded()) {
+//                mInterstitialAd.show();
+//            } else {
+//                Log.d("TAG", "The interstitial wasn't loaded yet.");
+//                requestNewInterstitial();
+//            }
             if (PermissionHelper.isStorageGranted(this)) {
                 WallpaperDownloader.prepare(this)
                         .wallpaper(mWallpaper)
@@ -462,12 +457,12 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
                                     .crop(rectF)
                                     .start(AsyncTask.THREAD_POOL_EXECUTOR);
                         } else if (item.getType() == PopupItem.Type.HOMESCREEN_LOCKSCREEN) {
-                             if (mInterstitialAd.isLoaded()) {
-                                mInterstitialAd.show();
-                            } else {
-                                Log.d("TAG", "The interstitial wasn't loaded yet.");
-                                requestNewInterstitial();
-                            }
+//                             if (mInterstitialAd.isLoaded()) {
+//                                mInterstitialAd.show();
+//                            } else {
+//                                Log.d("TAG", "The interstitial wasn't loaded yet.");
+//                                requestNewInterstitial();
+//                            }
                             RectF rectF = null;
                             if (Preferences.get(WallpaperBoardPreviewActivity.this).isCropWallpaper()) {
                                 if (mAttacher != null)
@@ -860,12 +855,12 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
             editor.putInt("counter", 0);
             editor.commit();
             //Shows ad
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-                requestNewInterstitial();
-            }
+//            if (mInterstitialAd.isLoaded()) {
+//                mInterstitialAd.show();
+//            } else {
+//                Log.d("TAG", "The interstitial wasn't loaded yet.");
+//                requestNewInterstitial();
+//            }
         }
     }
 
@@ -891,12 +886,12 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         }
     }
 
-    private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice((getString(R.string.admob_testdevice_id)))
-                .build();
-        mInterstitialAd.loadAd(adRequest);
-    }
+//    private void requestNewInterstitial() {
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .addTestDevice((getString(R.string.admob_testdevice_id)))
+//                .build();
+//        mInterstitialAd.loadAd(adRequest);
+//    }
 
     private void onWallpaperLoaded() {
         mAttacher = new PhotoViewAttacher(mImageView);

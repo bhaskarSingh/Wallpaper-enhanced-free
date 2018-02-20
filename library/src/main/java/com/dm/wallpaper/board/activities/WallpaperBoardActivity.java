@@ -69,15 +69,8 @@ import com.dm.wallpaper.board.utils.InAppBillingProcessor;
 import com.dm.wallpaper.board.utils.listeners.InAppBillingListener;
 import com.dm.wallpaper.board.utils.listeners.NavigationListener;
 import com.dm.wallpaper.board.utils.views.HeaderView;
-import com.github.javiersantos.appupdater.AppUpdater;
-import com.github.javiersantos.appupdater.enums.Display;
-import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.github.javiersantos.materialstyleddialogs.enums.Style;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
@@ -135,7 +128,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
 
     private ActivityConfiguration mConfig;
 
-    private InterstitialAd interstitial;
+    //private InterstitialAd interstitial;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -144,27 +137,27 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_board);
         startHandler();
-        MobileAds.initialize(this, (getString(R.string.admob_app_id)));
+        //MobileAds.initialize(this, (getString(R.string.admob_app_id)));
 
         // Prepare new ad
-        interstitial = new InterstitialAd(getApplicationContext());
+        //interstitial = new InterstitialAd(getApplicationContext());
         // Ad unit ID
-        interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
+        //interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
         // Load Ad
-        loadInterstitial();
+        //loadInterstitial();
 
         //Load banner ad
-        AdView mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-        AppUpdater appUpdater = new AppUpdater(this);
-        appUpdater.start();
-
-        new AppUpdater(this)
-                .showEvery(5)
-                .setDisplay(Display.DIALOG)
-                .setUpdateFrom(UpdateFrom.GOOGLE_PLAY);
+//        AdView mAdView = findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
+//
+//        AppUpdater appUpdater = new AppUpdater(this);
+//        appUpdater.start();
+//
+//        new AppUpdater(this)
+//                .showEvery(5)
+//                .setDisplay(Display.DIALOG)
+//                .setUpdateFrom(UpdateFrom.GOOGLE_PLAY);
 
         ButterKnife.bind(this);
         startService(new Intent(this, WallpaperBoardService.class));
@@ -584,13 +577,13 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
             }}, 2000);
     }
 
-    private void loadInterstitial()
-    {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice((getString(R.string.admob_testdevice_id)))
-                .build();
-        interstitial.loadAd(adRequest);
-    }
+//    private void loadInterstitial()
+//    {
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .addTestDevice((getString(R.string.admob_testdevice_id)))
+//                .build();
+//        interstitial.loadAd(adRequest);
+//    }
 
     private void adblockcheck() {
         checkAdBlocker();

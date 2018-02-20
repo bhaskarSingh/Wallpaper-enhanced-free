@@ -124,10 +124,10 @@ dependencies {
     implementation 'com.google.android.gms:play-services-analytics:11.8.0'
 
     // App Updater
-    compile 'com.github.javiersantos:AppUpdater:2.6.3'
+    //compile 'com.github.javiersantos:AppUpdater:2.6.3'
 
     // Google Ads
-    compile 'com.google.android.gms:play-services-ads:11.8.0'
+    //compile 'com.google.android.gms:play-services-ads:11.8.0'
 
     // Material Dialogs With Additional Features
     compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'

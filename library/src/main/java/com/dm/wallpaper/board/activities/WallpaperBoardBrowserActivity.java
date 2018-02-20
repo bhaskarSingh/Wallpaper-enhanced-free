@@ -19,8 +19,6 @@ import com.dm.wallpaper.board.fragments.WallpaperSearchFragment;
 import com.dm.wallpaper.board.helpers.LocaleHelper;
 import com.dm.wallpaper.board.preferences.Preferences;
 import com.dm.wallpaper.board.utils.Extras;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -71,9 +69,9 @@ public class WallpaperBoardBrowserActivity extends AppCompatActivity {
         softKeyboardHelper.enable();
 
         //Load banner ad
-        AdView mAdView = findViewById(R.id.adView_2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        AdView mAdView = findViewById(R.id.adView_2);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
 
         mFragManager = getSupportFragmentManager();
         if (savedInstanceState != null) {
